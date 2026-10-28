@@ -18,14 +18,14 @@ void* vendeur(void* arg) {
     while (!stop) {
         int produit = rand() % K;
 
-        pthread_mutex_lock(&mutex); // 🔒 قفل المقطع الحرج
+        pthread_mutex_lock(&mutex);  
         if (stock[produit] > 0) {
             stock[produit]--;
             ventes_valides++;
         } else {
             ventes_refusees++;
         }
-        pthread_mutex_unlock(&mutex); // 🔓 فتح القفل
+        pthread_mutex_unlock(&mutex);   
 
         usleep(1000);
     }
